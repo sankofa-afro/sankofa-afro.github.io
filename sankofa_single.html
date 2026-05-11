@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conciencia de clase | Antirracismo | Resistencia">
+    <meta name="author" content="Sankofa">
+    <meta name="keywords" content="panafricanismo, sankofa, conciencia, socialismo, antiracismo, afroecuatorianos, afrolatinos, diaspora africana, afro, comunismo, black panthers">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="icon" href="img/icon2.png" type="image/png">
+    <title>Sankofa — Conciencia de Clase · Antirracismo · Resistencia</title>
+
+<style>
+/* ===========================
+   SANKOFA — EDITORIAL DESIGN
+   =========================== */
+
+*, *::before, *::after {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --black: #0a0a0a;
+    --ink: #111111;
+    --paper: #f5f0e8;
+    --gray-100: #f7f5f0;
+    --gray-300: #d4cfc5;
+    --gray-500: #8a8070;
+    --gray-700: #3d3830;
+    --white: #ffffff;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Libre Baskerville', Georgia, serif;
+    --font-ui: 'Barlow', sans-serif;
+    --font-cond: 'Barlow Condensed', sans-serif;
+    --header-h: 68px;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* === PAGES === */
+.page { display: none; }
+.page.active { display: block; }
+
+/* === TOPBAR === */
+.topbar {
+    background: var(--black);
+    color: var(--gray-500);
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.topbar a { color: var(--gold); transition: color 0.2s; }
+.topbar a:hover { color: var(--gold-light); }
+.topbar-sep { color: #333; }
+
+/* === HEADER === */
+header {
+    position: sticky; top: 0; z-index: 1000;
+    background: var(--paper);
+    border-bottom: 3px solid var(--black);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+.header-inner {
+    height: var(--header-h);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; cursor: pointer; }
+.logo img { height: 40px; width: auto; }
+.logo-text { font-family: var(--font-display); font-size: 1.9rem; font-weight: 900; color: var(--black); letter-spacing: -0.02em; line-height: 1; }
+.logo-text span { color: var(--gold); }
+
+.navlist { display: flex; align-items: center; }
+.navlist li a {
+    font-family: var(--font-cond);
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gray-700); padding: 8px 16px;
+    transition: color 0.2s; position: relative; cursor: pointer;
+}
+.navlist li a::after {
+    content: ''; position: absolute;
+    bottom: 4px; left: 16px; right: 16px;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0); transition: transform 0.25s ease;
+}
+.navlist li a:hover, .navlist li a.active { color: var(--black); }
+.navlist li a:hover::after, .navlist li a.active::after { transform: scaleX(1); }
+
+.nav-search {
+    background: var(--black); border: none; color: var(--white);
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; margin-left: 16px; transition: background 0.2s; flex-shrink: 0;
+}
+.nav-search:hover { background: var(--gold); color: var(--black); }
+.nav-search i { color: inherit; }
+#menu-icon { display: none; font-size: 1.6rem; cursor: pointer; color: var(--black); padding: 4px; }
+
+/* Category strip */
+.category-strip { background: var(--black); }
+.category-strip ul { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+.category-strip ul li a {
+    font-family: var(--font-cond); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-500);
+    padding: 8px 20px; border-right: 1px solid #222; display: block;
+    transition: color 0.2s, background 0.2s; cursor: pointer;
+}
+.category-strip ul li:first-child a { border-left: 1px solid #222; }
+.category-strip ul li a:hover { color: var(--gold); background: rgba(201,168,76,0.07); }
+
+/* === SECTION LABEL === */
+.section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.section-label .label-text {
+    font-family: var(--font-cond); font-size: 0.68rem; font-weight: 800;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--white); background: var(--black);
+    padding: 5px 12px; white-space: nowrap;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-300); }
+.section-label.dark-bg::after { background: rgba(255,255,255,0.15); }
+
+/* === HERO === */
+.hero { position: relative; overflow: hidden; }
+.hero img { width: 100%; height: 92vh; object-fit: cover; display: block; filter: brightness(0.5); }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(10,10,10,0.9) 100%); }
+.hero-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 60px 8%; color: var(--white); animation: fadeUp 1s ease forwards; }
+.hero-kicker {
+    font-family: var(--font-cond); font-size: 0.72rem; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.hero-kicker::before { content: ''; display: block; width: 32px; height: 2px; background: var(--gold); }
+.hero-text h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.08; max-width: 720px; text-shadow: 0 2px 20px rgba(0,0,0,0.6); margin-bottom: 16px; }
+.hero-sub { font-family: var(--font-ui); font-size: 0.95rem; color: rgba(255,255,255,0.75); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* === INFO SECTION (index) === */
+.info-section { background: var(--black); color: var(--white); padding: 80px 0; }
+.info-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 64px; align-items: start; }
+.info-img-wrap { position: relative; }
+.info-img-wrap::before { content: ''; position: absolute; top: -10px; left: -10px; right: 10px; bottom: 10px; border: 2px solid var(--gold); z-index: 0; }
+.info-img-wrap img { position: relative; z-index: 1; width: 100%; aspect-ratio: 3/4; object-fit: contain; }
+.info-content h2 { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
+.info-content h2 em { color: var(--gold); font-style: italic; }
+.info-content p { font-family: var(--font-body); font-size: 0.93rem; line-height: 1.9; color: rgba(255,255,255,0.72); margin-bottom: 16px; }
+.info-goals { margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
+.info-goals-title { font-family: var(--font-cond); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.info-goals ul { display: flex; flex-direction: column; gap: 10px; }
+.info-goals ul li { font-family: var(--font-ui); font-size: 0.9rem; color: rgba(255,255,255,0.78); display: flex; align-items: flex-start; gap: 10px; }
+.info-goals ul li::before { content: '—'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+/* === PROMO BANNER === */
+.promo-banner { position: relative; overflow: hidden; }
+.promo-banner img { width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.4); }
+.promo-banner-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
+.badge { font-family: var(--font-cond); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 5px 14px; margin-bottom: 20px; display: inline-block; }
+.promo-banner-content h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--white); margin-bottom: 12px; }
+.promo-banner-content p { font-family: var(--font-ui); font-size: 0.95rem; color: rgba(255,255,255,0.75); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* === ABOUT PAGE === */
+.page-hero { background: var(--black); padding: 80px 0 60px; border-bottom: 3px solid var(--gold); }
+.page-hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.page-hero img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.page-hero-text .kicker { font-family: var(--font-cond); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.page-hero-text .kicker::before { content: ''; display: block; width: 24px; height: 2px; background: var(--gold); }
+.page-hero-text h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 900; color: var(--white); line-height: 1.08; margin-bottom: 20px; }
+.page-hero-text p { font-family: var(--font-body); font-size: 0.93rem; line-height: 1.9; color: rgba(255,255,255,0.68); margin-bottom: 14px; }
+
+.feature-block { padding: 80px 0; background: var(--paper); }
+.feature-block.alt-bg { background: var(--gray-100); }
+.feature-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.feature-inner.reverse { direction: rtl; }
+.feature-inner.reverse > * { direction: ltr; }
+.feature-img { position: relative; overflow: hidden; }
+.feature-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.feature-img:hover img { transform: scale(1.04); }
+.feature-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
+.feature-text h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; color: var(--black); line-height: 1.15; margin-bottom: 20px; }
+.feature-text h2::after { content: ''; display: block; width: 48px; height: 3px; background: var(--gold); margin-top: 12px; }
+.feature-text p { font-family: var(--font-body); font-size: 0.93rem; line-height: 1.9; color: var(--gray-700); margin-bottom: 14px; }
+.pull-quote { border-left: 4px solid var(--gold); padding: 20px 24px; margin: 32px 0; background: var(--gray-100); }
+.pull-quote p { font-family: var(--font-display); font-size: 1.25rem; font-style: italic; color: var(--black); line-height: 1.5; }
+
+.vision-section { background: var(--black); color: var(--white); padding: 80px 0; }
+.vision-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+.vision-text h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; color: var(--white); margin-bottom: 20px; line-height: 1.1; }
+.vision-text h2 span { color: var(--gold); }
+.vision-text p { font-family: var(--font-body); font-size: 0.93rem; line-height: 1.9; color: rgba(255,255,255,0.72); margin-bottom: 14px; }
+.vision-pillars { display: flex; flex-direction: column; gap: 20px; }
+.pillar { border: 1px solid rgba(201,168,76,0.25); padding: 24px; transition: border-color 0.3s, background 0.3s; }
+.pillar:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+.pillar-num { font-family: var(--font-cond); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.pillar h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.pillar p { font-family: var(--font-ui); font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.58); }
+
+/* === PUBLICATIONS PAGE === */
+.publications-header { background: var(--black); padding: 60px 0; text-align: center; border-bottom: 3px solid var(--gold); }
+.publications-header h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--white); margin-bottom: 12px; }
+.publications-header p { font-family: var(--font-ui); font-size: 0.9rem; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; }
+.publications-section { padding: 64px 0; }
+.posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+.post-card { background: var(--white); border: 1px solid var(--gray-300); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.post-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+.post-card-embed { position: relative; width: 100%; height: 0; padding-top: 125%; overflow: hidden; }
+.post-card-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.post-card-footer { padding: 14px 18px; border-top: 2px solid var(--gold); background: var(--paper); display: flex; align-items: center; justify-content: space-between; }
+.post-card-tag { font-family: var(--font-cond); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-500); }
+.post-card-arrow { font-size: 0.9rem; color: var(--gold); }
+
+/* === CONTACT PAGE === */
+.contact-page-wrap { background: var(--black); }
+.contact-hero { padding: 80px 0 60px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.contact-hero-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+.contact-hero-inner .kicker { font-family: var(--font-cond); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.contact-hero-inner h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+.contact-hero-inner p { font-family: var(--font-body); font-size: 0.93rem; line-height: 1.9; color: rgba(255,255,255,0.62); }
+.contact-body { padding: 64px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: start; }
+.contact-links-block h3, .contact-form-block h3 { font-family: var(--font-cond); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.social-link { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-family: var(--font-ui); font-size: 0.95rem; transition: color 0.2s; }
+.social-link:hover { color: var(--gold); }
+.social-link .bx { font-size: 1.4rem; color: var(--gold); width: 24px; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 14px 16px; font-size: 0.93rem; font-family: var(--font-ui);
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white); outline: none; transition: border-color 0.2s, background 0.2s;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.28); }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); background: rgba(201,168,76,0.04); }
+.contact-form textarea { min-height: 150px; resize: vertical; }
+.btn-submit { font-family: var(--font-cond); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; background: var(--gold); color: var(--black); border: none; padding: 16px 40px; cursor: pointer; transition: background 0.2s, transform 0.15s; align-self: flex-start; }
+.btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+/* === FOOTER === */
+footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 60px 0 32px; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .logo-text { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: var(--white); display: block; margin-bottom: 12px; }
+.footer-brand .logo-text span { color: var(--gold); }
+.footer-brand p { font-family: var(--font-ui); font-size: 0.88rem; line-height: 1.7; max-width: 280px; }
+.footer-tagline { font-family: var(--font-cond); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-top: 16px; }
+.footer-col h4 { font-family: var(--font-cond); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a { font-family: var(--font-ui); font-size: 0.87rem; color: rgba(255,255,255,0.55); transition: color 0.2s; cursor: pointer; }
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
+.footer-bottom p { font-family: var(--font-ui); font-size: 0.78rem; }
+.footer-social { display: flex; gap: 14px; }
+.footer-social a { font-size: 1.2rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.footer-social a:hover { color: var(--gold); }
+
+/* === DIVIDER === */
+.divider { border: none; height: 1px; background: var(--gray-300); margin: 0; }
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.active { opacity: 1; transform: translateX(0); }
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .info-grid, .feature-inner, .vision-inner, .contact-grid, .footer-inner, .page-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .feature-inner.reverse { direction: ltr; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .navlist { display: none; }
+    #menu-icon { display: block; }
+    .category-strip { display: none; }
+    .hero img { height: 75vh; }
+    .hero-text { padding: 40px 5%; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+    <span>Conciencia de clase</span>
+    <span class="topbar-sep">·</span>
+    <span>Antirracismo</span>
+    <span class="topbar-sep">·</span>
+    <span>Resistencia</span>
+    <span class="topbar-sep">·</span>
+    <a href="https://www.instagram.com/sankofa.afro/" target="_blank">Instagram</a>
+    <span class="topbar-sep">·</span>
+    <a href="https://www.tiktok.com/@sankofa.afro" target="_blank">TikTok</a>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo" onclick="navigate('inicio')">
+                <img src="img/icon1.png" alt="Sankofa">
+                <span class="logo-text">San<span>kofa</span></span>
+            </div>
+            <nav>
+                <ul class="navlist">
+                    <li><a onclick="navigate('inicio')" data-page="inicio" class="active">Inicio</a></li>
+                    <li><a onclick="navigate('publicaciones')" data-page="publicaciones">Publicaciones</a></li>
+                    <li><a onclick="navigate('contacto')" data-page="contacto">Contacto</a></li>
+                    <li><a onclick="navigate('quienes')" data-page="quienes">Quiénes Somos</a></li>
+                </ul>
+            </nav>
+            <button class="nav-search" aria-label="Buscar"><i class="bx bx-search"></i></button>
+            <i class="bx bx-menu" id="menu-icon" onclick="toggleMenu()"></i>
+        </div>
+    </div>
+</header>
+
+<!-- ===== CATEGORY STRIP ===== -->
+<div class="category-strip">
+    <div class="container">
+        <ul>
+            <li><a onclick="navigate('publicaciones')">Panafricanismo</a></li>
+            <li><a onclick="navigate('publicaciones')">Lucha de Clases</a></li>
+            <li><a onclick="navigate('publicaciones')">Memoria Histórica</a></li>
+            <li><a onclick="navigate('publicaciones')">Epistemología Negra</a></li>
+            <li><a onclick="navigate('publicaciones')">Diáspora Africana</a></li>
+            <li><a onclick="navigate('publicaciones')">Antirracismo</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- ================================================
+     PAGE: INICIO
+     ================================================ -->
+<div id="page-inicio" class="page active">
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="img/bg.png" alt="Banner principal Sankofa">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <div class="hero-kicker">Pensamiento Político Afrodiaspórico</div>
+            <h1>Trenzando conocimiento<br>desde la raíz</h1>
+            <p class="hero-sub">Conciencia de clase &nbsp;·&nbsp; Antirracismo &nbsp;·&nbsp; Resistencia</p>
+        </div>
+    </section>
+
+    <!-- INFO SECTION -->
+    <section class="info-section">
+        <div class="container">
+            <div class="section-label dark-bg">
+                <span class="label-text">Qué es Sankofa</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-img-wrap reveal-left">
+                    <img src="img/logo.png" alt="Símbolo Sankofa">
+                </div>
+                <div class="info-content reveal-right">
+                    <h2><em>Volver al origen</em><br>para avanzar con memoria</h2>
+                    <p>Sankofa es un concepto filosófico del pueblo Akan de Ghana. Proviene del idioma Twi y expresa una idea radicalmente política: volver al origen para recuperar lo que fue arrebatado y aprender de ello para avanzar. Su símbolo, el ave que camina hacia adelante mientras mira atrás, no habla de nostalgia, sino de estrategia histórica.</p>
+                    <p>Desde Sankofa asumimos esta idea en clave marxista: el despojo epistémico fue una herramienta central del capitalismo colonial. La destrucción de los saberes africanos permitió la racialización del trabajo, la naturalización de la esclavitud y la producción de una clase negra históricamente explotada, deshumanizada y excluida del estatuto pleno de sujeto político.</p>
+                    <p>Este proyecto nace desde la convicción de que no hay liberación racial sin ruptura con el orden económico que la produce. Recordar, aquí, no es mirar atrás para quedarse. Es recuperar lo necesario para avanzar sin repetir la violencia.</p>
+                    <div class="info-goals">
+                        <div class="info-goals-title">Objetivos Centrales</div>
+                        <ul>
+                            <li>Recuperar memorias afrodescendientes silenciadas</li>
+                            <li>Desmontar el racismo estructural e institucional</li>
+                            <li>Fortalecer la conciencia de clase negra</li>
+                            <li>Pensar el panafricanismo desde Abya Yala</li>
+                            <li>Disputar el conocimiento eurocéntrico desde epistemologías negras</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <section class="promo-banner">
+        <img src="img/revista.png" alt="Revista Sankofa">
+        <div class="promo-banner-content">
+            <span class="badge">Próximamente</span>
+            <h2>Revista Física<br>&amp; Merchandising</h2>
+            <p>Pensamiento crítico en papel &nbsp;·&nbsp; Llevando la teoría a la calle</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-text">San<span>kofa</span></span>
+                    <p>Proyecto divulgativo afrodiaspórico que articula pensamiento crítico, memoria histórica y análisis político desde Abya Yala.</p>
+                    <div class="footer-tagline">Recordar no es mirar atrás. Es avanzar con memoria.</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a onclick="navigate('inicio')">Inicio</a></li>
+                        <li><a onclick="navigate('publicaciones')">Publicaciones</a></li>
+                        <li><a onclick="navigate('quienes')">Quiénes Somos</a></li>
+                        <li><a onclick="navigate('contacto')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/sankofa.afro/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@sankofa.afro" target="_blank">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Sankofa · Todos los derechos reservados</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/sankofa.afro/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@sankofa.afro" target="_blank"><i class="bx bxl-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- ================================================
+     PAGE: QUIÉNES SOMOS
+     ================================================ -->
+<div id="page-quienes" class="page">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-inner">
+                <div class="reveal-left">
+                    <img src="img/about us.png" alt="Quiénes somos Sankofa">
+                </div>
+                <div class="page-hero-text reveal-right">
+                    <div class="kicker">Nuestro proyecto</div>
+                    <h1>¿Quiénes<br>Somos?</h1>
+                    <p>Sankofa es un proyecto divulgativo nacido de una urgencia histórica: recuperar aquello que fue negado, silenciado o fragmentado en la experiencia de la Diáspora Africana.</p>
+                    <p>Trabajamos desde un enfoque ontológico y epistemológico porque entendemos que la dominación no solo opera sobre los cuerpos, sino también sobre las formas de conocer, nombrar y existir en el mundo.</p>
+                    <p>El concepto Sankofa proviene del pueblo Akan de Ghana y del idioma Twi. Significa "volver al origen para recuperar y aprender". No se trata de nostalgia, sino de un acto político: mirar atrás para comprender el presente y disputar el futuro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section class="feature-block">
+        <div class="container">
+            <div class="feature-inner reveal">
+                <div class="feature-img">
+                    <img src="img/mission.png" alt="Lo que hacemos">
+                </div>
+                <div class="feature-text">
+                    <h2>Lo Que Hacemos</h2>
+                    <p>Sankofa existe para fortalecer la conciencia colectiva de la Diáspora Africana, articulando memoria, resistencia y conciencia de clase. Cuestionamos los relatos hegemónicos que reducen lo afro a folklore, marginalidad o excepción, y apostamos por una lectura estructural del racismo como tecnología del capitalismo colonial.</p>
+                    <p>Nuestro trabajo se sitúa en el cruce entre la memoria histórica y la disputa del relato, el panafricanismo y la lucha de clases, y la producción cultural vinculada al pensamiento político.</p>
+                    <div class="pull-quote">
+                        <p>No buscamos representar a la diáspora como objeto de estudio, sino hablar desde ella, con voz propia, situada y sin concesiones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR STANCE -->
+    <section class="feature-block alt-bg">
+        <div class="container">
+            <div class="feature-inner reverse reveal">
+                <div class="feature-img">
+                    <img src="img/humanrights.jpg" alt="Nuestra postura">
+                </div>
+                <div class="feature-text">
+                    <h2>Nuestra Postura</h2>
+                    <p>Entendemos que todo conocimiento es político. Sankofa no pretende ser un espacio aséptico ni conciliador: asumimos una posición crítica frente al colonialismo, el racismo estructural y las formas contemporáneas de explotación.</p>
+                    <p>Nombramos las violencias, señalamos las continuidades históricas y reivindicamos la dignidad de los pueblos afrodescendientes como sujetos históricos y políticos.</p>
+                    <p>No podemos borrar la historia ni reparar por completo sus daños, pero sí podemos disputar su sentido. Sankofa apuesta por una producción de saber que conecte pasado, presente y futuro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION PILLARS -->
+    <section class="vision-section">
+        <div class="container">
+            <div class="section-label dark-bg" style="margin-bottom:48px;">
+                <span class="label-text">Hacia Dónde Caminamos</span>
+            </div>
+            <div class="vision-inner">
+                <div class="vision-text reveal-left">
+                    <h2>Construyendo espacios de <span>pensamiento afro</span></h2>
+                    <p>Sankofa no se limita al espacio digital. Nuestras aspiraciones apuntan a la construcción de espacios permanentes de pensamiento afro dentro de la academia, donde el conocimiento producido por y para la Diáspora Africana deje de ser marginal.</p>
+                    <p>Creemos en la necesidad de disputar el canon académico, abrir grietas en sus estructuras eurocéntricas y fomentar comunidades de estudio, investigación y debate que articulen historia, filosofía, ciencia y política desde perspectivas afrocentradas y de clase.</p>
+                    <p>Al mismo tiempo, apostamos por la materialización del pensamiento: libros, revistas y objetos que sacan el pensamiento crítico del aula cerrada y lo llevan a la calle y a la vida cotidiana.</p>
+                </div>
+                <div class="vision-pillars reveal-right">
+                    <div class="pillar">
+                        <div class="pillar-num">Pilar 01</div>
+                        <h3>Academia y Epistemología</h3>
+                        <p>Disputar el canon eurocéntrico desde perspectivas afrocentradas y de clase en las universidades de Abya Yala.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-num">Pilar 02</div>
+                        <h3>Producción Material</h3>
+                        <p>Revistas impresas, publicaciones y objetos que sacan el pensamiento crítico del aula cerrada y lo llevan a la calle.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-num">Pilar 03</div>
+                        <h3>Redes de Organización</h3>
+                        <p>Construir comunidades de estudio y debate que fortalezcan la organización política de la Diáspora Africana.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-num">Pilar 04</div>
+                        <h3>Memoria Colectiva</h3>
+                        <p>Recuperar y preservar las memorias silenciadas como condición material para cualquier proyecto de emancipación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT / EDUCATION -->
+    <section class="feature-block">
+        <div class="container">
+            <div class="feature-inner reveal">
+                <div class="feature-img">
+                    <img src="img/student.png" alt="Formación y educación">
+                </div>
+                <div class="feature-text">
+                    <h2>Formación y Conciencia Política</h2>
+                    <p>La pensadora etíope Elleni Tedla, en <em>Sankofa: African Thought and Education</em>, plantea que África, y por extensión su diáspora, solo puede construir un desarrollo auténtico si rescata y revitaliza sus tradiciones educativas y filosóficas precoloniales.</p>
+                    <p>Sankofa retoma esta idea como praxis: producir conocimiento desde nuestras propias coordenadas históricas, culturales y materiales. La pedagogía colonial sigue viva en las instituciones, en los medios y en el sentido común.</p>
+                    <div class="pull-quote">
+                        <p>Volver al origen no es retroceder. Es avanzar con memoria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-text">San<span>kofa</span></span>
+                    <p>Proyecto divulgativo afrodiaspórico que articula pensamiento crítico, memoria histórica y análisis político desde Abya Yala.</p>
+                    <div class="footer-tagline">Recordar no es mirar atrás. Es avanzar con memoria.</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a onclick="navigate('inicio')">Inicio</a></li>
+                        <li><a onclick="navigate('publicaciones')">Publicaciones</a></li>
+                        <li><a onclick="navigate('quienes')">Quiénes Somos</a></li>
+                        <li><a onclick="navigate('contacto')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/sankofa.afro/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@sankofa.afro" target="_blank">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Sankofa · Todos los derechos reservados</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/sankofa.afro/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@sankofa.afro" target="_blank"><i class="bx bxl-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- ================================================
+     PAGE: PUBLICACIONES
+     ================================================ -->
+<div id="page-publicaciones" class="page">
+
+    <div class="publications-header">
+        <h1>Publicaciones</h1>
+        <p>Análisis · Memoria · Resistencia · Pensamiento Crítico</p>
+    </div>
+
+    <section class="publications-section">
+        <div class="container">
+
+            <div class="section-label" style="margin-bottom:32px;">
+                <span class="label-text">Política y Memoria</span>
+            </div>
+            <div class="posts-grid" style="margin-bottom:64px;">
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAG6-yA-iH4/D3cxAZ7edI4F7u8JpkgCAg/view?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Panafricanismo</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAG7uUa2Mwo/ogRioaWL7jNtk_cpqAms0A/view?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Lucha de Clases</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAG5FvxyLrA/UhoJ78Qmyr2AdoDT9Bb3SA/view?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Memoria Histórica</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAG1iLLRvKM/1CyU2XCitUc4833vuO-QRw/view?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Antirracismo</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-label" style="margin-bottom:32px;">
+                <span class="label-text">Análisis y Resistencia</span>
+            </div>
+            <div class="posts-grid">
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAG0ylmZ7e8/pA66mhsNZez6yKI2iNRElw/watch?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Diáspora Africana</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAG0e9xjubU/4erpZEvJX0X4-J302zJtjA/view?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Epistemología Negra</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAG0e0aIKFE/aOAlZqezLMp01t6BYZAPxw/view?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Colonialismo</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+                <div class="post-card reveal">
+                    <div class="post-card-embed">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAGvQ5KAF4Y/X74rXuiMXkR6Rmy-GarMUw/view?embed" allowfullscreen allow="fullscreen"></iframe>
+                    </div>
+                    <div class="post-card-footer">
+                        <span class="post-card-tag">Pensamiento Crítico</span>
+                        <span class="post-card-arrow"><i class="bx bx-link-external"></i></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-text">San<span>kofa</span></span>
+                    <p>Proyecto divulgativo afrodiaspórico que articula pensamiento crítico, memoria histórica y análisis político desde Abya Yala.</p>
+                    <div class="footer-tagline">Recordar no es mirar atrás. Es avanzar con memoria.</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a onclick="navigate('inicio')">Inicio</a></li>
+                        <li><a onclick="navigate('publicaciones')">Publicaciones</a></li>
+                        <li><a onclick="navigate('quienes')">Quiénes Somos</a></li>
+                        <li><a onclick="navigate('contacto')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/sankofa.afro/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@sankofa.afro" target="_blank">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Sankofa · Todos los derechos reservados</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/sankofa.afro/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@sankofa.afro" target="_blank"><i class="bx bxl-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- ================================================
+     PAGE: CONTACTO
+     ================================================ -->
+<div id="page-contacto" class="page">
+    <div class="contact-page-wrap">
+
+        <div class="contact-hero">
+            <div class="container">
+                <div class="contact-hero-inner reveal">
+                    <div class="kicker">Escríbenos</div>
+                    <h1>Conéctate<br>con Sankofa</h1>
+                    <p>Sankofa es un proyecto en constante construcción. Si deseas formar parte, colaborar, proponer ideas, o simplemente acompañar y seguir nuestro proceso, este es el espacio para hacerlo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-body">
+            <div class="container">
+                <div class="contact-grid">
+
+                    <div class="contact-links-block reveal-left">
+                        <h3>Redes Sociales</h3>
+                        <a class="social-link" href="https://www.instagram.com/sankofa.afro/" target="_blank">
+                            <i class="bx bxl-instagram"></i>
+                            <span>@sankofa.afro</span>
+                        </a>
+                        <a class="social-link" href="https://www.tiktok.com/@sankofa.afro" target="_blank">
+                            <i class="bx bxl-tiktok"></i>
+                            <span>@sankofa.afro</span>
+                        </a>
+                        <a class="social-link" href="mailto:sankofa.proyect@outlook.com">
+                            <i class="bx bx-envelope"></i>
+                            <span>sankofa.proyect@outlook.com</span>
+                        </a>
+                        <div style="margin-top:40px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.08);">
+                            <p style="font-family:var(--font-ui); font-size:0.88rem; line-height:1.8; color:rgba(255,255,255,0.55);">
+                                Creemos en la construcción colectiva, en el diálogo crítico y en la creación de redes que fortalezcan el pensamiento afro en los espacios culturales y académicos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-block reveal-right">
+                        <h3>Envíanos un Mensaje</h3>
+                        <form class="contact-form" action="mailto:sankofa.proyect@outlook.com" method="post" enctype="text/plain">
+                            <div class="form-row">
+                                <input type="text" name="Nombre" placeholder="Tu nombre" required>
+                                <input type="email" name="Email" placeholder="Tu correo electrónico" required>
+                            </div>
+                            <input type="text" name="Asunto" placeholder="Asunto">
+                            <textarea name="Mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-text">San<span>kofa</span></span>
+                    <p>Proyecto divulgativo afrodiaspórico que articula pensamiento crítico, memoria histórica y análisis político desde Abya Yala.</p>
+                    <div class="footer-tagline">Recordar no es mirar atrás. Es avanzar con memoria.</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a onclick="navigate('inicio')">Inicio</a></li>
+                        <li><a onclick="navigate('publicaciones')">Publicaciones</a></li>
+                        <li><a onclick="navigate('quienes')">Quiénes Somos</a></li>
+                        <li><a onclick="navigate('contacto')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/sankofa.afro/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@sankofa.afro" target="_blank">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Sankofa · Todos los derechos reservados</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/sankofa.afro/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@sankofa.afro" target="_blank"><i class="bx bxl-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script>
+// === SPA NAVIGATION ===
+const pages = { inicio: 'page-inicio', publicaciones: 'page-publicaciones', contacto: 'page-contacto', quienes: 'page-quienes' };
+
+function navigate(pageKey) {
+    // Hide all pages
+    Object.values(pages).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+    });
+
+    // Show target page
+    const target = document.getElementById(pages[pageKey]);
+    if (target) target.classList.add('active');
+
+    // Update nav active state
+    document.querySelectorAll('.navlist li a').forEach(a => {
+        a.classList.toggle('active', a.dataset.page === pageKey);
+    });
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Close mobile menu
+    const navlist = document.querySelector('.navlist');
+    navlist.removeAttribute('style');
+
+    // Trigger reveals on new page
+    setTimeout(checkReveals, 100);
+}
+
+// Set data-page on navlist items
+document.querySelectorAll('.navlist li a').forEach(a => {
+    const text = a.textContent.trim();
+    if (text === 'Inicio') a.dataset.page = 'inicio';
+    else if (text === 'Publicaciones') a.dataset.page = 'publicaciones';
+    else if (text === 'Contacto') a.dataset.page = 'contacto';
+    else if (text.includes('Qui')) a.dataset.page = 'quienes';
+});
+
+// === SCROLL REVEAL ===
+function checkReveals() {
+    document.querySelectorAll('.active .reveal, .active .reveal-left, .active .reveal-right').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            el.classList.add('active');
+        }
+    });
+}
+window.addEventListener('scroll', checkReveals);
+window.addEventListener('load', () => { checkReveals(); });
+
+// === MOBILE MENU ===
+function toggleMenu() {
+    const navlist = document.querySelector('.navlist');
+    const isOpen = navlist.style.display === 'flex';
+    if (isOpen) {
+        navlist.removeAttribute('style');
+    } else {
+        Object.assign(navlist.style, {
+            display: 'flex', flexDirection: 'column',
+            position: 'absolute', top: '100%', left: '0', right: '0',
+            background: 'var(--paper)', padding: '16px 0',
+            borderBottom: '3px solid var(--black)', zIndex: '999'
+        });
+    }
+}
+</script>
+</body>
+</html>
